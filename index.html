@@ -293,6 +293,75 @@
       gap: 10px;
       grid-template-columns: repeat(3, minmax(0, 1fr));
     }
+    .artifact-media-deck {
+      display: grid;
+      gap: 10px;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      margin-top: 2px;
+    }
+    .artifact-media-card {
+      display: grid;
+      gap: 8px;
+      align-content: start;
+      padding: 14px;
+      border-radius: 16px;
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(247,243,236,.14);
+      color: #f7f3ec;
+      text-decoration: none;
+      min-height: 132px;
+      transition: transform .16s ease, background .16s ease, border-color .16s ease;
+    }
+    .artifact-media-card:hover {
+      transform: translateY(-1px);
+      background: rgba(255,255,255,.11);
+      border-color: rgba(247,243,236,.2);
+    }
+    .artifact-media-card[data-tone="primary"] {
+      background: rgba(180,138,90,.16);
+      border-color: rgba(180,138,90,.28);
+    }
+    .artifact-media-card[data-tone="context"] {
+      background: rgba(87,110,150,.14);
+      border-color: rgba(87,110,150,.22);
+    }
+    .artifact-media-card[data-tone="scan"] {
+      background: rgba(255,255,255,.12);
+      border-color: rgba(255,255,255,.2);
+    }
+    .artifact-media-kicker {
+      font-size: 10px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: rgba(247,243,236,.7);
+    }
+    .artifact-media-card strong {
+      font-family: Georgia, serif;
+      font-size: 19px;
+      line-height: 1.28;
+      letter-spacing: -.02em;
+    }
+    .artifact-media-card p {
+      margin: 0;
+      color: rgba(247,243,236,.84);
+      line-height: 1.55;
+      font-size: 13px;
+    }
+    .artifact-media-meta {
+      margin-top: auto;
+      font-size: 11px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: rgba(247,243,236,.6);
+    }
+    .artifact-media-thumb {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      border-radius: 12px;
+      border: 1px solid rgba(247,243,236,.16);
+      background: rgba(255,255,255,.12);
+    }
     .artifact-signal {
       padding: 14px;
       border-radius: 16px;
@@ -1824,6 +1893,8 @@
       if (displayMode === 'quote') {
         visual.append(make('div', 'artifact-visual-quote', `“${quoteText}”`));
         visual.append(make('div', '', artifact.supportLabel || artifactPrimaryLine(sources)));
+        const mediaDeck = renderArtifactMediaDeck(artifact);
+        if (mediaDeck) visual.append(mediaDeck);
         return visual;
       }
 
@@ -1842,6 +1913,8 @@
           grid.append(cell);
         });
         visual.append(grid);
+        const mediaDeck = renderArtifactMediaDeck(artifact);
+        if (mediaDeck) visual.append(mediaDeck);
         return visual;
       }
 
@@ -1855,6 +1928,8 @@
           footprint.append(row);
         });
         visual.append(footprint);
+        const mediaDeck = renderArtifactMediaDeck(artifact);
+        if (mediaDeck) visual.append(mediaDeck);
         return visual;
       }
 
@@ -1862,7 +1937,37 @@
         doc.append(make('span', '', `“${artifact.quoteText}”`));
       }
       visual.append(doc);
+      const mediaDeck = renderArtifactMediaDeck(artifact);
+      if (mediaDeck) visual.append(mediaDeck);
       return visual;
+    }
+
+    function renderArtifactMediaDeck(artifact) {
+      if (!artifact.mediaItems?.length) return null;
+      const deck = make('div', 'artifact-media-deck');
+      artifact.mediaItems.forEach((item) => {
+        const card = item.href ? document.createElement('a') : document.createElement('div');
+        card.className = 'artifact-media-card';
+        card.dataset.tone = item.tone || 'context';
+        if (item.href) {
+          card.href = item.href;
+          card.target = item.href.startsWith('http') ? '_blank' : '_self';
+          if (card.target === '_blank') card.rel = 'noreferrer';
+        }
+        if (item.imageUrl) {
+          const thumb = document.createElement('img');
+          thumb.className = 'artifact-media-thumb';
+          thumb.src = item.imageUrl;
+          thumb.alt = item.imageAlt || item.title || item.kicker || 'Artifact media';
+          card.append(thumb);
+        }
+        if (item.kicker) card.append(make('div', 'artifact-media-kicker', item.kicker));
+        if (item.title) card.append(make('strong', '', item.title));
+        if (item.text) card.append(make('p', '', item.text));
+        if (item.meta) card.append(make('div', 'artifact-media-meta', item.meta));
+        deck.append(card);
+      });
+      return deck;
     }
 
     function renderEvidenceProfile(chapter) {

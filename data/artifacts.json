@@ -26,7 +26,24 @@
     "displayMode": "document",
     "visualTitle": "OpenStack community release",
     "visualText": "2013-02-18 · Sean Xiang is quoted as co-founder and CEO while the product is framed as the missing security layer for OpenStack storage.",
-    "quoteText": "One of the key challenges with enterprise core business applications on cloud adoption is the need to achieve data privacy and regulatory compliance."
+    "quoteText": "One of the key challenges with enterprise core business applications on cloud adoption is the need to achieve data privacy and regulatory compliance.",
+    "mediaItems": [
+      {
+        "kicker": "Role confirmation",
+        "title": "Co-founder and CEO named in the release",
+        "text": "The artifact is valuable because it does not just imply leadership through company context; it explicitly identifies Sean Xiang in the company narrative.",
+        "meta": "Primary company URL",
+        "tone": "primary",
+        "href": "https://www.bloombase.com/news_and_events/20130218-1.html"
+      },
+      {
+        "kicker": "Dated trail",
+        "title": "2013-02-18 becomes the opening public anchor",
+        "text": "This gives the founder chapter a hard publication date, which is stronger editorially than an undated founding claim or retrospective summary.",
+        "meta": "Chronology anchor",
+        "tone": "context"
+      }
+    ]
   },
   {
     "id": "vmware-2013-artifact",
@@ -42,7 +59,24 @@
     "displayMode": "document",
     "visualTitle": "VMware TAP announcement",
     "visualText": "2013-08-30 · A direct company URL ties Bloombase to VMware's alliance program and to virtualization-era data privacy concerns.",
-    "quoteText": "Data privacy tops one of CIOs' concerns over virtualization and cloud."
+    "quoteText": "Data privacy tops one of CIOs' concerns over virtualization and cloud.",
+    "mediaItems": [
+      {
+        "kicker": "Alliance frame",
+        "title": "Virtualization-era buyer language is already present",
+        "text": "The copy is not generic partnership filler. It clearly locates Bloombase inside virtualization and cloud infrastructure concerns that large buyers actually cared about in 2013.",
+        "meta": "Enterprise context",
+        "tone": "primary",
+        "href": "https://www.bloombase.com/news_and_events/20130830-1.html"
+      },
+      {
+        "kicker": "Why it matters",
+        "title": "The founding chapter gains market texture",
+        "text": "Combined with the OpenStack release, the VMware item makes the first public year feel like a sequence of infrastructure-facing moves rather than a single isolated proof point.",
+        "meta": "Supportive founder evidence",
+        "tone": "context"
+      }
+    ]
   },
   {
     "id": "vmware-2014",
@@ -81,7 +115,24 @@
     "sourceId": "nvidia-2023",
     "mediaLabel": "AI-era thesis card",
     "supportLabel": "Primary repositioning signal",
-    "displayMode": "quote"
+    "displayMode": "quote",
+    "mediaItems": [
+      {
+        "kicker": "Essay frame",
+        "title": "A technical argument, not a branding refresh",
+        "text": "The source is useful because it argues for rebuilding data-at-rest security with NVIDIA DPUs and GPUs instead of merely gesturing toward AI as a trend.",
+        "meta": "2023 blog source",
+        "tone": "primary",
+        "href": "https://www.bloombase.com/blog/rebuilding-bloombase-data-at-rest-security-with-nvidia-dpus-and-gpus/"
+      },
+      {
+        "kicker": "Editorial use",
+        "title": "This can host future conference imagery cleanly",
+        "text": "The new media deck gives the AI-era chapter a place for real conference stills, article crops, or preserved screenshots later, without changing the card system again.",
+        "meta": "Media-ready slot",
+        "tone": "scan"
+      }
+    ]
   },
   {
     "id": "utimaco-2025",
@@ -94,7 +145,24 @@
     "sourceId": "utimaco-2025",
     "mediaLabel": "Alliance bulletin card",
     "supportLabel": "Primary AI-era alliance signal",
-    "displayMode": "document"
+    "displayMode": "document",
+    "mediaItems": [
+      {
+        "kicker": "Alliance proof",
+        "title": "AI-era language is explicit in the release itself",
+        "text": "This matters because the chronicle does not have to infer modern relevance from conference presence alone; the announcement names the AI-era frame directly.",
+        "meta": "2025-04-29 release",
+        "tone": "primary",
+        "href": "https://www.bloombase.com/news_and_events/20250429-1.html"
+      },
+      {
+        "kicker": "Closing chapter",
+        "title": "A stronger place for future visual captures",
+        "text": "If preserved event shots, article snippets, or speaker graphics are added later, they belong here because the sourcing already clears the quality bar.",
+        "meta": "Exhibit-ready",
+        "tone": "scan"
+      }
+    ]
   },
   {
     "id": "dell-2014-artifact",
@@ -229,6 +297,22 @@
         "label": "2025",
         "title": "Utimaco alliance for the AI era",
         "text": "A direct alliance announcement names AI-era data security as the current market frame."
+      }
+    ],
+    "mediaItems": [
+      {
+        "kicker": "Exhibit logic",
+        "title": "Signal stack now has dedicated media slots",
+        "text": "The artifact system can now carry article snippets, preserved visual crops, and conference imagery as first-class evidence cards instead of generic decoration.",
+        "meta": "System upgrade",
+        "tone": "context"
+      },
+      {
+        "kicker": "Curation rule",
+        "title": "Only source-strong chapters should get richer visuals",
+        "text": "That keeps the site from faking archival density where the sourcing is still thin, especially in the earliest academic chapter.",
+        "meta": "Editorial guardrail",
+        "tone": "primary"
       }
     ]
   }

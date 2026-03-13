@@ -37,9 +37,10 @@
 - validation wall upgraded from a generic grouped list into a source-backed ecosystem module with dated milestones, editorial notes, and direct links to primary evidence
 - artifact system upgraded to support multi-source editorial artifacts and richer chapter treatments for geography + AI-era signal stacks
 - new evidence-exhibit layer added between narrative chapters and the archive, grouping the strongest source-backed artifacts into editorial desk-style exhibit cards with chapter/archive jumps and provenance links
+- artifact visual system upgraded again with source-backed media decks, so strong chapters can carry richer article-snippet / conference-visual / future-scan slots without resorting to toy placeholder imagery
 
 ## Next implementation steps
 1. Strengthen the source archive further by capturing more direct primary URLs for early academic details, especially anything tighter than the current profile-level CUHK / Beckman trail.
-2. Deepen the artifact system with real media slots for conference visuals, article snippets, and future scans only where source quality is strong enough.
+2. Populate the new media-deck slots with actual preserved captures or conference visuals for the AI-era chapter once durable public assets are collected.
 3. Keep tightening direct primary sourcing for pre-founder academic detail so the earliest chapter can move from restrained framing into firmer chronology.
 4. Consider migrating the static prototype into Astro once the content model stabilizes.
