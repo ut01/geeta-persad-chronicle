@@ -5,10 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sean Xiang — Founder Chronicle</title>
   <meta name="description" content="A source-backed editorial chronicle of Sean Xiang's path from research to enterprise security founder and AI-era infrastructure builder." />
+  <link href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css" rel="stylesheet" />
   <style>
     :root {
       --bg: #f3efe7;
-      --paper: rgba(255,255,255,.74);
+      --paper: rgba(255,255,255,.76);
       --paper-strong: rgba(255,255,255,.92);
       --ink: #1f2732;
       --muted: #5f6977;
@@ -92,7 +93,7 @@
       color: var(--muted);
       font-size: 16px;
       line-height: 1.75;
-      max-width: 60ch;
+      max-width: 62ch;
       margin: 0 0 24px;
     }
     .chips, .proof-strip { display: flex; flex-wrap: wrap; gap: 10px; }
@@ -116,7 +117,7 @@
     .stat span { font-size: 13px; line-height: 1.5; color: var(--muted); }
 
     .phase-rail {
-      position: sticky; top: 0; z-index: 10; margin: 0 0 28px; padding: 14px; border-radius: 22px; background: rgba(247,243,236,.86);
+      position: sticky; top: 0; z-index: 20; margin: 0 0 28px; padding: 14px; border-radius: 22px; background: rgba(247,243,236,.88);
       backdrop-filter: blur(18px); border: 1px solid rgba(31,39,50,.08); box-shadow: 0 14px 28px rgba(31,39,50,.08);
     }
     .phase-rail ol {
@@ -137,7 +138,7 @@
     .overview {
       display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(320px, .95fr); gap: 24px; margin-bottom: 34px;
     }
-    .overview-copy, .overview-notes, .map-panel, .validation-panel, .sources-panel { padding: 28px; }
+    .overview-copy, .overview-notes, .map-panel, .validation-panel, .sources-panel, .archive-panel { padding: 28px; }
     h2 {
       font-family: Georgia, serif; font-size: clamp(32px, 4vw, 48px); letter-spacing: -.03em; margin: 0 0 12px;
     }
@@ -178,42 +179,55 @@
 
     .sticky-stack { position: sticky; top: 98px; display: grid; gap: 18px; }
     .map-panel { overflow: hidden; }
-    .map-frame {
-      position: relative; min-height: 420px; border-radius: 24px; overflow: hidden;
-      background:
-        linear-gradient(180deg, rgba(25,50,79,.08), rgba(25,50,79,.04)),
-        linear-gradient(120deg, rgba(255,255,255,.55), rgba(255,255,255,.2));
+    .map-shell {
+      position: relative; min-height: 460px; border-radius: 24px; overflow: hidden;
       border: 1px solid rgba(25,50,79,.08);
+      background: linear-gradient(180deg, rgba(25,50,79,.06), rgba(25,50,79,.03));
     }
-    .map-frame::before {
-      content: ""; position: absolute; inset: 0;
-      background-image: radial-gradient(circle at 18% 24%, rgba(25,50,79,.08), transparent 16%), radial-gradient(circle at 80% 28%, rgba(45,95,115,.08), transparent 18%), radial-gradient(circle at 50% 68%, rgba(180,138,90,.08), transparent 20%);
+    #map {
+      position: absolute;
+      inset: 0;
+    }
+    .map-overlay {
+      position: absolute;
+      inset: 0;
       pointer-events: none;
+      background: linear-gradient(180deg, rgba(10,18,26,.08), rgba(10,18,26,0) 22%, rgba(10,18,26,0) 70%, rgba(10,18,26,.12));
+      z-index: 4;
     }
-    .map-grid {
-      position: absolute; inset: 0; background-image: linear-gradient(rgba(31,39,50,.045) 1px, transparent 1px), linear-gradient(90deg, rgba(31,39,50,.045) 1px, transparent 1px); background-size: 44px 44px; opacity: .55;
-    }
-    .map-line, .map-dot { position: absolute; z-index: 1; }
-    .map-line {
-      height: 2px; transform-origin: left center; background: linear-gradient(90deg, rgba(25,50,79,0), rgba(25,50,79,.72), rgba(25,50,79,0));
-    }
-    .map-dot {
-      width: 16px; height: 16px; border-radius: 50%; transform: translate(-50%, -50%);
-      background: rgba(255,255,255,.95); border: 2px solid rgba(25,50,79,.24);
-      box-shadow: 0 0 0 10px rgba(25,50,79,.08);
-      transition: .18s ease;
-    }
-    .map-dot.active { transform: translate(-50%, -50%) scale(1.15); background: #19324f; border-color: #19324f; box-shadow: 0 0 0 14px rgba(25,50,79,.12); }
-    .map-label {
-      position: absolute; transform: translate(12px, -50%); max-width: 180px; z-index: 2; font-size: 12px; color: var(--muted);
-    }
-    .map-label strong { display: block; font-size: 14px; color: var(--ink); margin-bottom: 3px; }
     .map-caption {
       position: absolute; left: 18px; right: 18px; bottom: 18px; padding: 18px; border-radius: 18px;
-      background: rgba(255,255,255,.82); border: 1px solid rgba(25,50,79,.1); backdrop-filter: blur(10px);
+      background: rgba(255,255,255,.82); border: 1px solid rgba(25,50,79,.1); backdrop-filter: blur(10px); z-index: 5;
     }
     .map-caption h3 { margin: 0 0 6px; font-size: 20px; font-family: Georgia, serif; }
     .map-caption p { margin: 0; color: var(--muted); line-height: 1.7; }
+    .map-caption .map-context { margin-top: 10px; font-size: 12px; color: var(--soft); letter-spacing: .08em; text-transform: uppercase; }
+    .maplibregl-ctrl-bottom-left,
+    .maplibregl-ctrl-bottom-right,
+    .maplibregl-ctrl-top-left,
+    .maplibregl-ctrl-top-right { z-index: 6; }
+    .maplibregl-popup-content {
+      border-radius: 16px;
+      padding: 12px 14px;
+      font-family: inherit;
+      color: var(--ink);
+    }
+    .maplibregl-popup-content strong { display: block; margin-bottom: 4px; }
+    .chapter-marker {
+      width: 16px;
+      height: 16px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.96);
+      border: 2px solid rgba(25,50,79,.30);
+      box-shadow: 0 0 0 10px rgba(25,50,79,.10);
+      transition: transform .18s ease, background-color .18s ease, box-shadow .18s ease, border-color .18s ease;
+    }
+    .chapter-marker.active {
+      transform: scale(1.12);
+      background: #19324f;
+      border-color: #19324f;
+      box-shadow: 0 0 0 14px rgba(25,50,79,.12);
+    }
 
     .validation-groups { display: grid; gap: 14px; }
     .validation-group {
@@ -224,6 +238,121 @@
     .validation-items span {
       padding: 8px 10px; border-radius: 999px; background: rgba(25,50,79,.05); border: 1px solid rgba(25,50,79,.07); font-size: 12px; color: var(--accent);
     }
+
+    .archive-wrap { margin-top: 34px; }
+    .archive-header {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 18px;
+      align-items: end;
+      margin-bottom: 18px;
+    }
+    .archive-note {
+      font-size: 13px;
+      color: var(--soft);
+      line-height: 1.7;
+      margin: 0;
+    }
+    .archive-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: flex-end;
+    }
+    .legend-chip {
+      padding: 8px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      color: var(--accent);
+      background: rgba(25,50,79,.05);
+      border: 1px solid rgba(25,50,79,.08);
+      cursor: pointer;
+    }
+    .legend-chip.active {
+      background: rgba(25,50,79,.10);
+      border-color: rgba(25,50,79,.18);
+    }
+    .archive-timeline {
+      position: relative;
+      display: grid;
+      gap: 14px;
+      margin-top: 20px;
+    }
+    .archive-timeline::before {
+      content: "";
+      position: absolute;
+      left: 94px;
+      top: 6px;
+      bottom: 6px;
+      width: 2px;
+      background: linear-gradient(180deg, rgba(25,50,79,.22), rgba(25,50,79,.06));
+    }
+    .timeline-event {
+      position: relative;
+      display: grid;
+      grid-template-columns: 78px minmax(0,1fr);
+      gap: 18px;
+      align-items: start;
+    }
+    .timeline-year {
+      position: sticky;
+      top: 86px;
+      align-self: start;
+      font-family: Georgia, serif;
+      font-size: 24px;
+      color: var(--accent);
+      letter-spacing: -.03em;
+      text-align: right;
+      padding-top: 10px;
+    }
+    .timeline-card {
+      position: relative;
+      padding: 18px 18px 18px 22px;
+      border-radius: 20px;
+      background: rgba(255,255,255,.66);
+      border: 1px solid rgba(25,50,79,.08);
+    }
+    .timeline-card::before {
+      content: "";
+      position: absolute;
+      left: -22px;
+      top: 24px;
+      width: 12px;
+      height: 12px;
+      border-radius: 999px;
+      background: var(--paper-strong);
+      border: 2px solid rgba(25,50,79,.3);
+      box-shadow: 0 0 0 7px rgba(25,50,79,.08);
+    }
+    .timeline-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      margin-bottom: 10px;
+      font-size: 12px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--soft);
+    }
+    .timeline-card h3 {
+      margin: 0 0 8px;
+      font-family: Georgia, serif;
+      font-size: 25px;
+      line-height: 1.2;
+      letter-spacing: -.02em;
+    }
+    .timeline-card p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.72;
+    }
+    .timeline-card[data-group="formation"] { border-left: 3px solid rgba(180,138,90,.55); }
+    .timeline-card[data-group="research"] { border-left: 3px solid rgba(87,110,150,.45); }
+    .timeline-card[data-group="company"] { border-left: 3px solid rgba(25,50,79,.42); }
+    .timeline-card[data-group="validation"] { border-left: 3px solid rgba(45,95,115,.45); }
+    .timeline-card[data-group="ai-era"] { border-left: 3px solid rgba(104,92,156,.45); }
+    .timeline-card.hidden { display: none; }
 
     .sources-wrap { margin-top: 34px; }
     .sources-list { display: grid; gap: 12px; margin-top: 18px; }
@@ -241,19 +370,26 @@
     .footer-note { margin-top: 18px; color: var(--soft); font-size: 13px; line-height: 1.7; }
 
     @media (max-width: 1080px) {
-      .hero, .overview, .main-grid { grid-template-columns: 1fr; }
+      .hero, .overview, .main-grid, .archive-header { grid-template-columns: 1fr; }
       .sticky-stack { position: static; }
       .phase-rail ol { grid-template-columns: repeat(3, minmax(0,1fr)); }
+      .archive-legend { justify-content: flex-start; }
     }
 
     @media (max-width: 700px) {
       .shell { padding-inline: 14px; }
-      .hero-copy, .hero-aside, .overview-copy, .overview-notes, .chapter, .map-panel, .validation-panel, .sources-panel { padding: 22px; }
+      .hero-copy, .hero-aside, .overview-copy, .overview-notes, .chapter, .map-panel, .validation-panel, .sources-panel, .archive-panel { padding: 22px; }
       .phase-rail ol { grid-template-columns: repeat(2, minmax(0,1fr)); }
       .chapter { padding-left: 28px; }
       .chapter::before { left: 12px; }
       .thesis-grid { grid-template-columns: 1fr; }
       .source-item { grid-template-columns: 1fr; }
+      .archive-timeline::before { left: 24px; }
+      .timeline-event { grid-template-columns: 1fr; gap: 8px; }
+      .timeline-year { position: static; text-align: left; padding-left: 40px; }
+      .timeline-card { margin-left: 40px; }
+      .timeline-card::before { left: -26px; }
+      .map-shell { min-height: 400px; }
     }
   </style>
 </head>
@@ -270,7 +406,7 @@
         <h1>Sean Xiang</h1>
         <p class="lede">From doctoral engineering formation to a long enterprise-security build — and now an argument for relevance in the AI infrastructure era.</p>
         <p class="summary">
-          This version stops treating the project as a generic landing page. It reframes the site as a premium editorial chronicle with a single chronological spine, selective geography, curated validation, and visible sources.
+          This version treats the project less like a generic founder page and more like a premium editorial archive: a clear chronological spine, a real geography layer, a denser reference timeline, curated ecosystem proof, and visible sources.
         </p>
         <div class="chips" id="heroChips">
           <span class="chip">CUHK Ph.D.</span>
@@ -285,7 +421,7 @@
         <div>
           <div class="aside-title">Chronicle thesis</div>
           <p class="summary" style="margin-top:8px; margin-bottom:0;">
-            The story is strongest when read as durable technical depth compounding into company-building, ecosystem trust, and a present-tense AI-security chapter — not as a vanity profile.
+            The story reads best as durable technical depth compounding into company-building, ecosystem trust, and a present-tense AI-security chapter — not as a vanity profile.
           </p>
         </div>
         <div class="thesis-grid">
@@ -294,16 +430,16 @@
             <span>Editorial chapters with distinct narrative roles rather than a flat milestone list.</span>
           </div>
           <div class="stat">
-            <strong>5</strong>
-            <span>Geographic anchors, kept selective so the map stays explanatory instead of decorative.</span>
+            <strong>4+1</strong>
+            <span>Real mapped anchors, plus a deliberate global view for the distributed AI-infrastructure chapter.</span>
           </div>
           <div class="stat">
-            <strong>12+</strong>
-            <span>Named ecosystem signals spanning cloud, HSM, enterprise security, and AI infrastructure.</span>
+            <strong>19</strong>
+            <span>Reference-grade archive events for readers who want more than a curated narrative layer.</span>
           </div>
           <div class="stat">
             <strong>14</strong>
-            <span>Source references surfaced in the archive instead of buried in planning docs.</span>
+            <span>Source references surfaced in the archive, including the direct 2025 Utimaco announcement page.</span>
           </div>
         </div>
       </aside>
@@ -318,7 +454,7 @@
         <div class="section-kicker">Information architecture</div>
         <h2>A founder page that reads like an editorial archive</h2>
         <p class="intro-copy">
-          The page follows a calm magazine-like rhythm: thesis first, then chapter navigation, then the main chronology, then a geography layer, then a selective validation wall, and finally the source archive. That sequence keeps the project premium and legible instead of turning into a startup page with a timeline bolted on.
+          The page follows a calm magazine-like rhythm: thesis first, then chapter navigation, then the main chronology, then a real map, then a selective validation wall, then a denser archive timeline, and finally the source archive. That sequencing keeps the site premium and legible instead of turning into a startup page with a timeline bolted on.
         </p>
       </article>
       <aside class="card overview-notes">
@@ -327,7 +463,7 @@
           <li>One chronological spine, chapter by chapter.</li>
           <li>Map movement only when the story changes.</li>
           <li>Validation grouped by meaning, not dumped as logos.</li>
-          <li>Sources made visible to support editorial credibility.</li>
+          <li>A second archive view for readers who want density, not just curation.</li>
         </ul>
       </aside>
     </section>
@@ -338,12 +474,14 @@
       <aside class="sticky-stack">
         <section class="card map-panel">
           <div class="section-label">Geography module</div>
-          <h2 style="font-size:34px; margin-bottom:14px;">A selective world map, synced to the chapter arc</h2>
-          <div class="map-frame" id="mapFrame">
-            <div class="map-grid"></div>
+          <h2 style="font-size:34px; margin-bottom:14px;">A restrained real map, synced to the chapter arc</h2>
+          <div class="map-shell">
+            <div id="map" aria-label="Map showing the geographic arc of Sean Xiang's chronicle"></div>
+            <div class="map-overlay"></div>
             <div class="map-caption">
               <h3 id="mapTitle">Loading…</h3>
               <p id="mapSummary"></p>
+              <div class="map-context" id="mapContext">Narrative geography</div>
             </div>
           </div>
         </section>
@@ -356,6 +494,22 @@
       </aside>
     </section>
 
+    <section class="archive-wrap">
+      <article class="card archive-panel">
+        <div class="section-label">Reference timeline</div>
+        <div class="archive-header">
+          <div>
+            <h2>A denser chronology for the readers who want the full record</h2>
+            <p class="archive-note">
+              The main chapters are deliberately selective. This archive view exposes the deeper milestone layer from the existing timeline dataset so the site can support both skim mode and research mode.
+            </p>
+          </div>
+          <div class="archive-legend" id="archiveLegend"></div>
+        </div>
+        <div class="archive-timeline" id="archiveTimeline"></div>
+      </article>
+    </section>
+
     <section class="sources-wrap">
       <article class="card sources-panel">
         <div class="section-label">Archive / sources</div>
@@ -364,11 +518,12 @@
           The source archive is not decorative. It is what moves the page away from tribute aesthetics and toward museum-style credibility. Some early-life details remain intentionally restrained because the public record still needs stronger confirmation.
         </p>
         <div class="sources-list" id="sourcesList"></div>
-        <p class="footer-note">Next upgrade path: replace remaining inferred early-life placeholders with direct primary sources, then add richer media artifacts for the strongest chapters.</p>
+        <p class="footer-note">Next upgrade path: capture stronger direct primary sources for the earliest formation chapter, then add media artifacts only where the sourcing is strong enough to carry them.</p>
       </article>
     </section>
   </main>
 
+  <script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
   <script>
     async function loadJson(path) {
       const res = await fetch(path);
@@ -416,8 +571,7 @@
 
         const proofList = make('ul', 'proof-list');
         chapter.proofPoints.forEach((point) => {
-          const li = make('li', '', point);
-          proofList.append(li);
+          proofList.append(make('li', '', point));
         });
         article.append(proofList);
 
@@ -435,65 +589,6 @@
 
         root.append(article);
       });
-    }
-
-    function drawMap(locations, chapters) {
-      const frame = document.getElementById('mapFrame');
-      const locationById = new Map(locations.map((location) => [location.id, location]));
-      const title = document.getElementById('mapTitle');
-      const summary = document.getElementById('mapSummary');
-
-      const dotRefs = new Map();
-      const labelRefs = new Map();
-
-      for (let i = 0; i < locations.length - 1; i++) {
-        const start = locations[i];
-        const end = locations[i + 1];
-        const dx = end.x - start.x;
-        const dy = end.y - start.y;
-        const length = Math.sqrt(dx * dx + dy * dy);
-        const angle = Math.atan2(dy, dx) * (180 / Math.PI);
-        const line = make('div', 'map-line');
-        line.style.left = `${start.x}%`;
-        line.style.top = `${start.y}%`;
-        line.style.width = `${length}%`;
-        line.style.transform = `rotate(${angle}deg)`;
-        frame.append(line);
-      }
-
-      locations.forEach((location) => {
-        const dot = make('button', 'map-dot');
-        dot.type = 'button';
-        dot.style.left = `${location.x}%`;
-        dot.style.top = `${location.y}%`;
-        dot.setAttribute('aria-label', location.name);
-        dot.addEventListener('click', () => {
-          const chapter = chapters.find((item) => item.locationId === location.id);
-          if (chapter) document.getElementById(chapter.id).scrollIntoView({ behavior: 'smooth', block: 'start' });
-        });
-        frame.append(dot);
-        dotRefs.set(location.id, dot);
-
-        const label = make('div', 'map-label');
-        label.style.left = `${location.x}%`;
-        label.style.top = `${location.y}%`;
-        label.innerHTML = `<strong>${location.name}</strong>${location.label}`;
-        frame.append(label);
-        labelRefs.set(location.id, label);
-      });
-
-      function setActive(locationId) {
-        locations.forEach((location) => {
-          dotRefs.get(location.id)?.classList.toggle('active', location.id === locationId);
-          labelRefs.get(location.id)?.style.setProperty('opacity', location.id === locationId ? '1' : '.62');
-        });
-        const current = locationById.get(locationId) || locations[0];
-        title.textContent = current.name;
-        summary.textContent = current.summary;
-      }
-
-      setActive(chapters[0].locationId);
-      return setActive;
     }
 
     function renderValidation(groups) {
@@ -525,6 +620,200 @@
       });
     }
 
+    function classifyEvent(headline, text) {
+      const blob = `${headline} ${text}`.toLowerCase();
+      if (blob.includes('ustc') || blob.includes('technical formation') || blob.includes('age 16')) return 'formation';
+      if (blob.includes('cuhk') || blob.includes('uc irvine') || blob.includes('beckman')) return 'research';
+      if (blob.includes('nvidia') || blob.includes('utimaco') || blob.includes('conference')) return 'ai-era';
+      if (blob.includes('founded') || blob.includes('marketplace') || blob.includes('canada expansion')) return 'company';
+      return 'validation';
+    }
+
+    function formatEventDate(startDate) {
+      const year = startDate.year;
+      const month = startDate.month ? String(startDate.month).padStart(2, '0') : null;
+      const day = startDate.day ? String(startDate.day).padStart(2, '0') : null;
+      if (month && day) return `${year}-${month}-${day}`;
+      if (month) return `${year}-${month}`;
+      return `${year}`;
+    }
+
+    function renderArchive(events) {
+      const timelineRoot = document.getElementById('archiveTimeline');
+      const legendRoot = document.getElementById('archiveLegend');
+      const groups = [
+        ['all', 'All'],
+        ['formation', 'Formation'],
+        ['research', 'Research'],
+        ['company', 'Company'],
+        ['validation', 'Validation'],
+        ['ai-era', 'AI era']
+      ];
+
+      groups.forEach(([value, label], index) => {
+        const button = make('button', `legend-chip${index === 0 ? ' active' : ''}`, label);
+        button.type = 'button';
+        button.dataset.filter = value;
+        button.addEventListener('click', () => {
+          document.querySelectorAll('.legend-chip').forEach((chip) => chip.classList.toggle('active', chip === button));
+          document.querySelectorAll('.timeline-card').forEach((card) => {
+            const shouldShow = value === 'all' || card.dataset.group === value;
+            card.classList.toggle('hidden', !shouldShow);
+          });
+          document.querySelectorAll('.timeline-event').forEach((eventEl) => {
+            const visibleCards = Array.from(eventEl.querySelectorAll('.timeline-card')).filter((card) => !card.classList.contains('hidden'));
+            eventEl.style.display = visibleCards.length ? '' : 'none';
+          });
+        });
+        legendRoot.append(button);
+      });
+
+      const byYear = new Map();
+      events.forEach((event) => {
+        const year = String(event.start_date.year);
+        if (!byYear.has(year)) byYear.set(year, []);
+        byYear.get(year).push(event);
+      });
+
+      Array.from(byYear.entries()).sort((a, b) => Number(a[0]) - Number(b[0])).forEach(([year, items]) => {
+        const row = make('section', 'timeline-event');
+        row.append(make('div', 'timeline-year', year));
+        const stack = make('div');
+        stack.style.display = 'grid';
+        stack.style.gap = '12px';
+
+        items.forEach((event) => {
+          const headline = event.text.headline;
+          const text = event.text.text;
+          const group = classifyEvent(headline, text);
+          const card = make('article', 'timeline-card');
+          card.dataset.group = group;
+
+          const meta = make('div', 'timeline-meta');
+          meta.append(make('span', '', formatEventDate(event.start_date)));
+          meta.append(make('span', '', group.replace('-', ' ')));
+          card.append(meta);
+          card.append(make('h3', '', headline));
+          card.append(make('p', '', text));
+          stack.append(card);
+        });
+
+        row.append(stack);
+        timelineRoot.append(row);
+      });
+    }
+
+    function initializeMap(locations, chapters) {
+      const title = document.getElementById('mapTitle');
+      const summary = document.getElementById('mapSummary');
+      const context = document.getElementById('mapContext');
+      const markers = new Map();
+      const locationById = new Map(locations.map((location) => [location.id, location]));
+      const realLocations = locations.filter((location) => Number.isFinite(location.lat) && Number.isFinite(location.lon) && !(location.lat === 0 && location.lon === 0));
+
+      const map = new maplibregl.Map({
+        container: 'map',
+        style: {
+          version: 8,
+          sources: {
+            carto: {
+              type: 'raster',
+              tiles: ['https://basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png'],
+              tileSize: 256,
+              attribution: '&copy; OpenStreetMap contributors &copy; CARTO'
+            }
+          },
+          layers: [
+            { id: 'carto', type: 'raster', source: 'carto', minzoom: 0, maxzoom: 20 }
+          ]
+        },
+        center: [-150, 28],
+        zoom: 1.25,
+        attributionControl: false,
+        cooperativeGestures: true
+      });
+
+      map.addControl(new maplibregl.AttributionControl({ compact: true }), 'bottom-right');
+      map.addControl(new maplibregl.NavigationControl({ showCompass: false }), 'top-right');
+
+      map.on('load', () => {
+        map.addSource('journey-route', {
+          type: 'geojson',
+          data: {
+            type: 'Feature',
+            geometry: {
+              type: 'LineString',
+              coordinates: realLocations.map((location) => [location.lon, location.lat])
+            }
+          }
+        });
+
+        map.addLayer({
+          id: 'journey-route-glow',
+          type: 'line',
+          source: 'journey-route',
+          paint: {
+            'line-color': 'rgba(25, 50, 79, 0.14)',
+            'line-width': 8,
+            'line-blur': 2
+          }
+        });
+
+        map.addLayer({
+          id: 'journey-route-line',
+          type: 'line',
+          source: 'journey-route',
+          paint: {
+            'line-color': '#19324f',
+            'line-width': 2.5,
+            'line-dasharray': [2, 2]
+          }
+        });
+
+        realLocations.forEach((location) => {
+          const el = make('button', 'chapter-marker');
+          el.type = 'button';
+          el.setAttribute('aria-label', location.name);
+          el.addEventListener('click', () => {
+            const chapter = chapters.find((item) => item.locationId === location.id);
+            if (chapter) document.getElementById(chapter.id).scrollIntoView({ behavior: 'smooth', block: 'start' });
+          });
+
+          const marker = new maplibregl.Marker({ element: el, anchor: 'center' })
+            .setLngLat([location.lon, location.lat])
+            .setPopup(new maplibregl.Popup({ offset: 16, closeButton: false }).setHTML(`<strong>${location.name}</strong><div>${location.label}</div>`))
+            .addTo(map);
+
+          markers.set(location.id, marker);
+        });
+      });
+
+      function setActive(locationId, chapter) {
+        locations.forEach((location) => {
+          const marker = markers.get(location.id);
+          marker?.getElement().classList.toggle('active', location.id === locationId);
+        });
+
+        const current = locationById.get(locationId) || locations[0];
+        title.textContent = current.name;
+        summary.textContent = current.summary;
+        context.textContent = chapter ? `${chapter.phase} · ${chapter.range}` : 'Narrative geography';
+
+        if (!map.loaded()) return;
+
+        if (locationId === 'global-ai') {
+          map.flyTo({ center: [10, 22], zoom: 1.15, speed: 0.55, essential: true });
+          return;
+        }
+
+        if (current && current.lon !== 0 && current.lat !== 0) {
+          map.flyTo({ center: [current.lon, current.lat], zoom: 3.1, speed: 0.55, essential: true });
+        }
+      }
+
+      return setActive;
+    }
+
     function activateScrollSync(chapters, setActiveLocation) {
       const chapterEls = chapters.map((chapter) => document.getElementById(chapter.id));
       const railLinks = Array.from(document.querySelectorAll('.phase-rail a'));
@@ -538,7 +827,7 @@
         const activeChapter = chapters.find((chapter) => chapter.id === activeId);
         if (!activeChapter) return;
         railLinks.forEach((link) => link.classList.toggle('active', link.dataset.target === activeId));
-        setActiveLocation(activeChapter.locationId);
+        setActiveLocation(activeChapter.locationId, activeChapter);
       }, {
         rootMargin: '-18% 0px -50% 0px',
         threshold: [0.25, 0.5, 0.75]
@@ -546,21 +835,24 @@
 
       chapterEls.forEach((el) => observer.observe(el));
       railLinks[0]?.classList.add('active');
+      setActiveLocation(chapters[0].locationId, chapters[0]);
     }
 
     async function init() {
-      const [chapters, locations, validationGroups, sources] = await Promise.all([
+      const [chapters, locations, validationGroups, sources, timeline] = await Promise.all([
         loadJson('./data/chapters.json'),
         loadJson('./data/locations.json'),
         loadJson('./data/validation.json'),
-        loadJson('./data/sources.json')
+        loadJson('./data/sources.json'),
+        loadJson('./data/timeline.json')
       ]);
 
       const sourcesById = new Map(sources.map((source) => [source.id, source]));
       renderPhaseRail(chapters);
       renderChapters(chapters, sourcesById);
-      const setActiveLocation = drawMap(locations, chapters);
+      const setActiveLocation = initializeMap(locations, chapters);
       renderValidation(validationGroups);
+      renderArchive(timeline.events);
       renderSources(sources);
       activateScrollSync(chapters, setActiveLocation);
     }
