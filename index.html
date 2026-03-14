@@ -1977,6 +1977,30 @@
       display: grid;
       gap: 12px;
     }
+    .source-search {
+      display: grid;
+      gap: 8px;
+    }
+    .source-search-input {
+      width: 100%;
+      border: 1px solid rgba(25,50,79,.1);
+      border-radius: 18px;
+      padding: 13px 16px;
+      background: rgba(255,255,255,.78);
+      color: var(--ink);
+      font: inherit;
+      font-size: 14px;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.72);
+    }
+    .source-search-input::placeholder {
+      color: var(--soft);
+    }
+    .source-search-input:focus {
+      outline: 0;
+      border-color: rgba(25,50,79,.2);
+      box-shadow: 0 0 0 4px rgba(25,50,79,.08);
+      background: rgba(255,255,255,.94);
+    }
     .source-filter-group {
       display: flex;
       flex-wrap: wrap;
@@ -2583,6 +2607,10 @@
               <p>The archive below is organized like an editorial evidence desk: readers can isolate first-party material, see which chapters each document supports, and distinguish direct claim support from bridge material or working synthesis.</p>
             </div>
             <div class="source-controls">
+              <label class="source-search" for="sourceSearchInput">
+                <span class="source-filter-label">Search the archive</span>
+                <input class="source-search-input" id="sourceSearchInput" type="search" placeholder="Search source title, publisher, claim scope, notes, or URL" />
+              </label>
               <div class="source-filter-group" id="sourceOriginFilters"></div>
               <div class="source-filter-group" id="sourceEvidenceFilters"></div>
               <div class="source-filter-group" id="sourceVerificationFilters"></div>
@@ -2617,6 +2645,10 @@
                 <p>This keeps the chronicle honest: readers can see which missing documents are true blockers for stronger narrative confidence and which are later enrichment passes.</p>
               </div>
               <div class="source-controls roadmap-controls">
+                <label class="source-search" for="roadmapSearchInput">
+                  <span class="source-filter-label">Search capture work</span>
+                  <input class="source-search-input" id="roadmapSearchInput" type="search" placeholder="Search claim, desired evidence, notes, or current anchors" />
+                </label>
                 <div class="source-filter-group" id="roadmapPriorityFilters"></div>
                 <div class="source-filter-group" id="roadmapStatusFilters"></div>
                 <div class="source-filter-group" id="roadmapChapterFilters"></div>
@@ -3611,9 +3643,10 @@
       const statusRoot = document.getElementById('roadmapStatusFilters');
       const chapterRoot = document.getElementById('roadmapChapterFilters');
       const activeRoot = document.getElementById('roadmapActiveState');
+      const searchInput = document.getElementById('roadmapSearchInput');
       if (!root) return;
 
-      const filters = { priority: 'all', status: 'all', chapter: 'all' };
+      const filters = { priority: 'all', status: 'all', chapter: 'all', query: '' };
       const filterSets = [
         {
           root: priorityRoot,
@@ -3645,6 +3678,7 @@
         if (filters.priority !== 'all') items.push(`Priority: ${filters.priority}`);
         if (filters.status !== 'all') items.push(`Status: ${filters.status}`);
         if (filters.chapter !== 'all') items.push(`Chapter: ${chaptersById.get(filters.chapter)?.phase || filters.chapter}`);
+        if (filters.query) items.push(`Search: ${filters.query}`);
         items.forEach((label) => activeRoot.append(make('span', 'source-active-chip', label)));
       }
 
@@ -3655,7 +3689,17 @@
           const matchesPriority = filters.priority === 'all' || entry.priority === filters.priority;
           const matchesStatus = filters.status === 'all' || entry.status === filters.status;
           const matchesChapter = filters.chapter === 'all' || entry.chapterId === filters.chapter;
-          return matchesPriority && matchesStatus && matchesChapter;
+          const queryBlob = [
+            entry.title,
+            entry.claim,
+            entry.desiredEvidence,
+            entry.whyItMatters,
+            entry.targetEffect,
+            entry.notes,
+            ...(entry.currentAnchors || []).map((sourceId) => sourcesById.get(sourceId)?.label || sourceId)
+          ].filter(Boolean).join(' ').toLowerCase();
+          const matchesQuery = !filters.query || queryBlob.includes(filters.query);
+          return matchesPriority && matchesStatus && matchesChapter && matchesQuery;
         });
 
         if (!filtered.length) {
@@ -3750,6 +3794,11 @@
           });
           root.append(button);
         });
+      });
+
+      searchInput?.addEventListener('input', (event) => {
+        filters.query = event.target.value.trim().toLowerCase();
+        draw();
       });
 
       window.addEventListener('chronicle:focus-chapter', (event) => {
@@ -4027,6 +4076,7 @@
       const verificationRoot = document.getElementById('sourceVerificationFilters');
       const chapterRoot = document.getElementById('sourceChapterFilters');
       const activeRoot = document.getElementById('sourceActiveState');
+      const searchInput = document.getElementById('sourceSearchInput');
       if (!root) return;
 
       const roadmapByAnchor = new Map();
@@ -4038,7 +4088,7 @@
       });
 
       const supportMap = buildSourceSupportMap(sources, chapters, eventsByChapterId, artifactsByChapterId);
-      const filters = { origin: 'all', evidence: 'all', verification: 'all', chapter: 'all' };
+      const filters = { origin: 'all', evidence: 'all', verification: 'all', chapter: 'all', query: '' };
       const filterSets = [
         {
           root: originRoot,
@@ -4083,6 +4133,7 @@
         if (filters.evidence !== 'all') items.push(`Proof: ${filters.evidence}`);
         if (filters.verification !== 'all') items.push(`Verification: ${filters.verification.replace('-', ' ')}`);
         if (filters.chapter !== 'all') items.push(`Chapter: ${chaptersById.get(filters.chapter)?.phase || filters.chapter}`);
+        if (filters.query) items.push(`Search: ${filters.query}`);
         items.forEach((label) => activeRoot.append(make('span', 'source-active-chip', label)));
       }
 
@@ -4097,7 +4148,21 @@
           const matchesEvidence = filters.evidence === 'all' || sourceTone === filters.evidence;
           const matchesVerification = filters.verification === 'all' || (source.verificationState || 'working') === filters.verification;
           const matchesChapter = filters.chapter === 'all' || support?.chapterIds?.has(filters.chapter);
-          return matchesOrigin && matchesEvidence && matchesVerification && matchesChapter;
+          const queryBlob = [
+            source.label,
+            source.note,
+            source.url,
+            source.publisherLabel,
+            source.categoryLabel,
+            source.claimScopeLabel,
+            source.evidenceLabel,
+            source.verificationStateLabel,
+            source.directnessLabel,
+            source.artifactReadinessLabel,
+            ...(support ? Array.from(support.chapterIds).map((chapterId) => chaptersById.get(chapterId)?.phase || chapterId) : [])
+          ].filter(Boolean).join(' ').toLowerCase();
+          const matchesQuery = !filters.query || queryBlob.includes(filters.query);
+          return matchesOrigin && matchesEvidence && matchesVerification && matchesChapter && matchesQuery;
         });
 
         if (!filtered.length) {
@@ -4211,6 +4276,11 @@
           });
           root.append(button);
         });
+      });
+
+      searchInput?.addEventListener('input', (event) => {
+        filters.query = event.target.value.trim().toLowerCase();
+        draw();
       });
 
       window.addEventListener('chronicle:focus-chapter', (event) => {
