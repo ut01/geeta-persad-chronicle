@@ -86,6 +86,22 @@
     },
     {
       "start_date": {
+        "year": "2012",
+        "month": "12",
+        "day": "12"
+      },
+      "text": {
+        "headline": "Open Virtualization Alliance resource",
+        "text": "An external ecosystem resource captures Bloombase in secure virtualization discourse before the stronger 2013 first-party release trail begins."
+      },
+      "sourceIds": [
+        "ova-2012"
+      ],
+      "id": "ova-overview-2012",
+      "chapterId": "founding-bloombase"
+    },
+    {
+      "start_date": {
         "year": "2013",
         "month": "2",
         "day": "18"
@@ -214,6 +230,22 @@
     },
     {
       "start_date": {
+        "year": "2016",
+        "month": "6",
+        "day": "13"
+      },
+      "text": {
+        "headline": "Ultra Electronics AEP Keyper HSM interoperability",
+        "text": "Bloombase expands the trust-layer story with a direct HSM interoperability release focused on hardened key storage and large-scale enterprise security."
+      },
+      "sourceIds": [
+        "ultra-2016"
+      ],
+      "id": "ultra-aep-keyper",
+      "chapterId": "enterprise-validation"
+    },
+    {
+      "start_date": {
         "year": "2017",
         "month": "3",
         "day": "20"
@@ -226,6 +258,22 @@
         "ibm-2017"
       ],
       "id": "ibm-validation",
+      "chapterId": "enterprise-validation"
+    },
+    {
+      "start_date": {
+        "year": "2017",
+        "month": "7",
+        "day": "17"
+      },
+      "text": {
+        "headline": "ATTO interoperability certification",
+        "text": "Bloombase certifies StoreSafe with ATTO storage-networking hardware, extending the validation arc into SAN, NAS, and high-speed connectivity infrastructure."
+      },
+      "sourceIds": [
+        "atto-2017"
+      ],
+      "id": "atto-certification",
       "chapterId": "enterprise-validation"
     },
     {
@@ -274,6 +322,22 @@
         "azure-2019"
       ],
       "id": "azure-marketplace",
+      "chapterId": "enterprise-validation"
+    },
+    {
+      "start_date": {
+        "year": "2019",
+        "month": "3",
+        "day": "5"
+      },
+      "text": {
+        "headline": "Marvell LiquidSecurity HSM partnership",
+        "text": "A partner-hosted Marvell release extends the 2019 enterprise trust layer into network HSM infrastructure between the Azure and nCipher milestones."
+      },
+      "sourceIds": [
+        "marvell-2019"
+      ],
+      "id": "marvell-liquidsecurity-2019",
       "chapterId": "enterprise-validation"
     },
     {
@@ -351,38 +415,6 @@
       ],
       "id": "utimaco-alliance",
       "chapterId": "ai-era"
-    },
-    {
-      "start_date": {
-        "year": "2016",
-        "month": "6",
-        "day": "13"
-      },
-      "text": {
-        "headline": "Ultra Electronics AEP Keyper HSM interoperability",
-        "text": "Bloombase expands the trust-layer story with a direct HSM interoperability release focused on hardened key storage and large-scale enterprise security."
-      },
-      "sourceIds": [
-        "ultra-2016"
-      ],
-      "id": "ultra-aep-keyper",
-      "chapterId": "enterprise-validation"
-    },
-    {
-      "start_date": {
-        "year": "2017",
-        "month": "7",
-        "day": "17"
-      },
-      "text": {
-        "headline": "ATTO interoperability certification",
-        "text": "Bloombase certifies StoreSafe with ATTO storage-networking hardware, extending the validation arc into SAN, NAS, and high-speed connectivity infrastructure."
-      },
-      "sourceIds": [
-        "atto-2017"
-      ],
-      "id": "atto-certification",
-      "chapterId": "enterprise-validation"
     }
   ]
 }

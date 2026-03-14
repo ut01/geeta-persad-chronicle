@@ -1445,6 +1445,131 @@
       background: rgba(215,233,239,.82);
       color: #20475d;
     }
+    .public-record-wrap {
+      margin-top: 34px;
+    }
+    .public-record-intro {
+      max-width: 74ch;
+      color: var(--muted);
+      line-height: 1.8;
+      margin: 0 0 22px;
+    }
+    .public-record-grid {
+      display: grid;
+      gap: 16px;
+    }
+    .public-record-card {
+      padding: 22px;
+      border-radius: 24px;
+      border: 1px solid rgba(25,50,79,.08);
+      background: linear-gradient(180deg, rgba(255,255,255,.84), rgba(246,243,237,.72));
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.45);
+    }
+    .public-record-head {
+      display: grid;
+      gap: 14px;
+      grid-template-columns: minmax(0, 1.08fr) minmax(240px, .92fr);
+      align-items: start;
+      margin-bottom: 16px;
+    }
+    .public-record-card h3 {
+      margin: 0 0 8px;
+      font-family: Georgia, serif;
+      font-size: 28px;
+      line-height: 1.2;
+      letter-spacing: -.02em;
+    }
+    .public-record-card p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.72;
+    }
+    .public-record-stats {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+    }
+    .public-record-stat {
+      padding: 14px;
+      border-radius: 18px;
+      background: rgba(255,255,255,.72);
+      border: 1px solid rgba(25,50,79,.08);
+    }
+    .public-record-stat strong {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 20px;
+      color: var(--ink);
+      font-family: Georgia, serif;
+    }
+    .public-record-stat span {
+      display: block;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.5;
+    }
+    .public-record-entries {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+    .public-record-entry {
+      display: grid;
+      gap: 10px;
+      padding: 16px;
+      border-radius: 20px;
+      border: 1px solid rgba(25,50,79,.08);
+      background: rgba(255,255,255,.7);
+    }
+    .public-record-entry[data-tone="primary"] {
+      border-color: rgba(45,95,115,.18);
+    }
+    .public-record-entry[data-tone="context"] {
+      border-color: rgba(180,138,90,.22);
+    }
+    .public-record-entry-topline {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+      color: var(--soft);
+      font-size: 11px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    .public-record-entry h4 {
+      margin: 0;
+      font-size: 18px;
+      line-height: 1.42;
+    }
+    .public-record-entry p {
+      font-size: 14px;
+      line-height: 1.72;
+    }
+    .public-record-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+    .public-record-action {
+      border: 0;
+      cursor: pointer;
+      font: inherit;
+      text-decoration: none;
+      padding: 10px 12px;
+      border-radius: 999px;
+      background: rgba(25,50,79,.06);
+      border: 1px solid rgba(25,50,79,.08);
+      color: var(--accent);
+      font-size: 12px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .public-record-action.primary {
+      background: var(--accent);
+      color: #f6f1e7;
+    }
     .source-explorer {
       margin-top: 18px;
       margin-bottom: 18px;
@@ -2040,6 +2165,14 @@
             </div>
             <div class="source-active-state" id="roadmapActiveState"></div>
             <div class="roadmap-wrap" id="sourceRoadmap"></div>
+          </section>
+        </div>
+        <div class="public-record-wrap">
+          <section class="audit-card">
+            <div class="section-label">Primary chronology ledger</div>
+            <h3>What the public record actually looks like when the source trail is grouped into arcs</h3>
+            <p class="public-record-intro">Instead of making readers infer chronology from scattered links, this ledger groups the strongest public record into a few editorial arcs: the opening bridge before the dense release trail, the enterprise validation years, and the AI-era continuity layer. It is a navigation surface, not just a footnote dump.</p>
+            <div class="public-record-grid" id="publicRecordLedger"></div>
           </section>
         </div>
         <div class="sources-list" id="sourcesList"></div>
@@ -2831,6 +2964,68 @@
       });
 
       draw();
+    }
+
+    function renderPublicRecordLedger(groups, chaptersById, sourcesById) {
+      const root = document.getElementById('publicRecordLedger');
+      if (!root) return;
+      root.innerHTML = '';
+
+      groups.forEach((group) => {
+        const card = make('article', 'public-record-card');
+        const head = make('div', 'public-record-head');
+        const copy = make('div');
+        copy.append(make('h3', '', group.title));
+        copy.append(make('p', '', group.summary));
+        head.append(copy);
+
+        const stats = make('div', 'public-record-stats');
+        (group.stats || []).forEach((stat) => {
+          const statCard = make('div', 'public-record-stat');
+          statCard.append(make('strong', '', stat.value));
+          statCard.append(make('span', '', stat.label));
+          stats.append(statCard);
+        });
+        head.append(stats);
+        card.append(head);
+
+        const entries = make('div', 'public-record-entries');
+        (group.entries || []).forEach((entry) => {
+          const chapter = chaptersById.get(entry.chapterId);
+          const source = sourcesById.get(entry.sourceId);
+          const entryCard = make('article', 'public-record-entry');
+          entryCard.dataset.tone = entry.tone || sourceSupportTone(source || {});
+
+          const topline = make('div', 'public-record-entry-topline');
+          topline.append(make('span', '', entry.dateLabel));
+          if (chapter) topline.append(make('span', '', `${chapter.phase} · ${chapter.range}`));
+          if (source) topline.append(make('span', '', source.publisherLabel || source.categoryLabel || 'Source'));
+          entryCard.append(topline);
+
+          entryCard.append(make('h4', '', entry.title));
+          entryCard.append(make('p', '', entry.summary));
+
+          const actions = make('div', 'public-record-actions');
+          const sourceLink = make('a', 'public-record-action primary', 'Open source');
+          sourceLink.href = entry.url;
+          sourceLink.target = entry.url.startsWith('http') ? '_blank' : '_self';
+          if (sourceLink.target === '_blank') sourceLink.rel = 'noreferrer';
+          actions.append(sourceLink);
+
+          if (chapter) {
+            const chapterButton = make('button', 'public-record-action', `Jump to ${chapter.phase}`);
+            chapterButton.type = 'button';
+            chapterButton.addEventListener('click', () => announceChapterFocus(chapter.id, { scrollSources: true }));
+            actions.append(chapterButton);
+          }
+
+          entryCard.append(actions);
+          entries.append(entryCard);
+        });
+
+        card.append(entries);
+        root.append(card);
+      });
     }
 
     function sourceSupportTone(source) {
@@ -3797,7 +3992,7 @@
     }
 
     async function init() {
-      const [chapters, locations, validationGroups, sources, timeline, artifacts, artifactTaxonomy, presentDirection, sourceRoadmap, exhibits] = await Promise.all([
+      const [chapters, locations, validationGroups, sources, timeline, artifacts, artifactTaxonomy, presentDirection, sourceRoadmap, exhibits, publicRecordLedger] = await Promise.all([
         loadJson('./data/chapters.json'),
         loadJson('./data/locations.json'),
         loadJson('./data/validation.json'),
@@ -3807,7 +4002,8 @@
         loadJson('./data/artifact-taxonomy.json'),
         loadJson('./data/present-direction.json'),
         loadJson('./data/source-roadmap.json'),
-        loadJson('./data/exhibits.json')
+        loadJson('./data/exhibits.json'),
+        loadJson('./data/public-record-ledger.json')
       ]);
 
       const sourcesById = new Map(sources.map((source) => [source.id, source]));
@@ -3835,6 +4031,7 @@
       renderEvidenceAudit(chapters, sourcesById, eventsByChapterId, artifactsByChapterId);
       renderSourceDossiers(chapters, sourcesById, eventsByChapterId, artifactsByChapterId, sourceRoadmap);
       renderSourceRoadmap(sourceRoadmap, chaptersById, sourcesById);
+      renderPublicRecordLedger(publicRecordLedger, chaptersById, sourcesById);
       renderSources(sources, chapters, chaptersById, eventsByChapterId, artifactsByChapterId, sourceRoadmap);
       activateScrollSync(chapters, setActiveLocation);
     }

@@ -130,7 +130,8 @@
       "Primary company pages now anchor Bloombase's positioning, global offices, and Silicon Valley / Redwood City footprint.",
       "2013 OpenStack, EMC, and VMware releases place Sean Xiang directly inside the public company narrative as co-founder and CEO.",
       "Earliest strong public company proof is now framed as a dated release trail rather than an unsourced founding myth.",
-      "Narrative function: establish the company as the spine of the chronicle, not just one milestone among many."
+      "Narrative function: establish the company as the spine of the chronicle, not just one milestone among many.",
+      "The 2012 Open Virtualization Alliance resource widens the pre-2013 public record, showing Bloombase in cloud / virtualization security discourse before the denser 2013 release trail."
     ],
     "locationId": "redwood-city",
     "mapCaption": "The map shifts north into the Peninsula: not for spectacle, but to mark the moment the research path hardens into a company built for enterprise trust.",
@@ -144,6 +145,7 @@
       "bearing": -22
     },
     "sources": [
+      "ova-2012",
       "bloombase-about",
       "bloombase-offices",
       "bloombase-news-index",
@@ -175,7 +177,8 @@
     "proofPoints": [
       "2013-2014: OpenStack, EMC, VMware, Dell, and Hitachi make the public validation trail visible early.",
       "2015-2017: HP ESKM, Thales ASAP, Ultra Electronics AEP, HPE, IBM, and ATTO show the trust layer deepening across key custody and storage infrastructure.",
-      "2018-2020: VMware Cloud on AWS, Azure Marketplace, nCipher, and Futurex keep the company legible as platforms and deployment surfaces shift."
+      "2018-2020: VMware Cloud on AWS, Azure Marketplace, nCipher, and Futurex keep the company legible as platforms and deployment surfaces shift.",
+      "2019 adds a Marvell LiquidSecurity HSM partner-hosted release between Azure Marketplace and nCipher, making the late validation arc feel less like two isolated points and more like a dense trust stack."
     ],
     "locationId": "redwood-city",
     "mapCaption": "The location stays anchored in Silicon Valley while the map emphasis shifts from movement to density: this chapter is about staying put long enough to accumulate interoperability proof.",
@@ -200,6 +203,7 @@
       "ibm-2017",
       "vmware-aws-2018",
       "azure-2019",
+      "marvell-2019",
       "ncipher-2019",
       "futurex-2020"
     ],

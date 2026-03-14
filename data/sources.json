@@ -435,5 +435,43 @@
     "claimScopeLabel": "Ecosystem proof",
     "verificationState": "direct",
     "verificationStateLabel": "Direct claim support"
+  },
+  {
+    "id": "ova-2012",
+    "label": "Open Virtualization Alliance overview by Bloombase (2012-12-12)",
+    "url": "http://www.openvirtualizationalliance.org/resources",
+    "note": "Earliest currently captured public document in the Bloombase news index, showing pre-2013 cloud / virtualization positioning before the stronger first-party release trail begins.",
+    "category": "ecosystem",
+    "categoryLabel": "Ecosystem resource",
+    "publisherType": "third-party",
+    "publisherLabel": "Open Virtualization Alliance resource page",
+    "evidenceLevel": "context",
+    "evidenceLabel": "Context source",
+    "year": "2012",
+    "directnessLabel": "External ecosystem URL",
+    "artifactReadinessLabel": "Context artifact ready",
+    "claimScope": "founding context",
+    "claimScopeLabel": "Founding context",
+    "verificationState": "bridge",
+    "verificationStateLabel": "Bridge source"
+  },
+  {
+    "id": "marvell-2019",
+    "label": "Marvell teams with Bloombase for LiquidSecurity Network HSM (2019-03-05)",
+    "url": "https://www.marvell.com/company/news/pressDetail.do?releaseID=10619",
+    "note": "Third-party press release from Marvell extending the 2019 trust-layer chronology beyond Azure and nCipher into HSM-backed security infrastructure.",
+    "category": "alliance",
+    "categoryLabel": "Third-party alliance announcement",
+    "publisherType": "third-party",
+    "publisherLabel": "Marvell press release",
+    "evidenceLevel": "context",
+    "evidenceLabel": "Context source",
+    "year": "2019",
+    "directnessLabel": "Partner-hosted press release",
+    "artifactReadinessLabel": "Context artifact ready",
+    "claimScope": "ecosystem proof",
+    "claimScopeLabel": "Ecosystem proof",
+    "verificationState": "bridge",
+    "verificationStateLabel": "Bridge source"
   }
 ]
