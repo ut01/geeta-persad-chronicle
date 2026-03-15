@@ -1,7 +1,7 @@
 [
   {
     "id": "jincheng-birth",
-    "phase": "Early years · Shanxi",
+    "phase": "Shanxi",
     "range": "Early years",
     "title": "Born in Jincheng, Shanxi",
     "dek": "Sean Xiang was born in Jincheng, Shanxi.",
@@ -69,7 +69,7 @@
   },
   {
     "id": "research-formation",
-    "phase": "CUHK / PhD",
+    "phase": "CUHK",
     "range": "Graduate era – 1997",
     "title": "A long research arc before Silicon Valley",
     "dek": "A Ph.D. in Electrical and Electronic Engineering from CUHK, followed by a Research Associate role at HKUST, preceded everything that followed.",
@@ -105,7 +105,7 @@
   },
   {
     "id": "california-transition",
-    "phase": "California transition",
+    "phase": "UC Irvine",
     "range": "1997–1999",
     "title": "Bridging science and technology strategy",
     "dek": "Scientist at the Beckman Laser Institute & Medical Clinic, UC Irvine, August 1997 to December 1999.",
@@ -140,7 +140,7 @@
   },
   {
     "id": "founding-bloombase",
-    "phase": "Bloombase founding",
+    "phase": "Bloombase",
     "range": "2012–present",
     "title": "Bloombase is the long arc: enterprise data security built for endurance",
     "dek": "Co-Founder & CEO of Bloombase since January 2012 — a multi-era infrastructure build embedding specialized security within global enterprise systems.",
@@ -188,7 +188,7 @@
   },
   {
     "id": "enterprise-validation",
-    "phase": "Enterprise validation years",
+    "phase": "Validation",
     "range": "2014–2020",
     "title": "Validation accumulates through alliances, certifications, and interoperability",
     "dek": "A dense network of certifications and partnerships established Bloombase as a universally trusted layer in enterprise infrastructure.",
@@ -242,7 +242,7 @@
   },
   {
     "id": "geographic-expansion",
-    "phase": "Canada / global ecosystem",
+    "phase": "Vancouver",
     "range": "2018 onward",
     "title": "The geography widens: strategic expansion to Canada",
     "dek": "Expansion beyond Silicon Valley emphasized global talent, advanced cryptography capability, and strategic ecosystem scale.",
@@ -280,7 +280,7 @@
   },
   {
     "id": "shenzhen-academic",
-    "phase": "Shenzhen / academic leadership",
+    "phase": "Shenzhen",
     "range": "2018–2023",
     "title": "Parallel academic chapter: Founding Dean and Institute co-founder in Shenzhen",
     "dek": "Alongside leading Bloombase, Sean Xiang built an academic track in Shenzhen — Founding Dean of the School of Artificial Intelligence at Shenzhen Technology University, then Chair Professor and Co-founder at the X-Institute of Shenzhen.",
@@ -314,7 +314,7 @@
   },
   {
     "id": "ai-era",
-    "phase": "AI-era repositioning",
+    "phase": "AI era",
     "range": "2023–2025",
     "title": "The current chapter is not nostalgia — it is AI infrastructure",
     "dek": "Rebuilding enterprise security primitives for the AI-infrastructure era: post-quantum cryptography, NVIDIA accelerators, and a new standards-layer presence.",
