@@ -1,6 +1,6 @@
-# Sean Xiang Chronicle — SOTA Design Review
+# Geeta Persad Chronicle — SOTA Design Review
 
-Goal: build a premium founder-chronicle page by borrowing proven patterns from open-source timeline, map-story, and editorial storytelling systems instead of inventing a bespoke interaction model too early.
+Goal: build a premium academic-chronicle page by borrowing proven patterns from open-source timeline, map-story, and editorial storytelling systems instead of inventing a bespoke interaction model too early.
 
 ## 1) Top 5 open-source references
 

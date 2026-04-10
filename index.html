@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sean Xiang — Founder Chronicle</title>
-  <meta name="description" content="A source-backed editorial chronicle of Sean Xiang's path from research to enterprise security founder and AI-era infrastructure builder." />
+  <title>Geeta Persad — Climate Scientist Chronicle</title>
+  <meta name="description" content="A source-backed editorial chronicle of Geeta Persad's path from Austin to Stanford, Princeton, Carnegie, and back home to UT Austin as a leading climate scientist." />
   <link href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css" rel="stylesheet" />
   <style>
     :root {
@@ -2785,27 +2785,27 @@
   </style>
 </head>
 <body>
-  <a class="repo-side-button left" href="https://github.com/ktwu01/sean-xiang-chronicle/stargazers" target="_blank" rel="noopener noreferrer" aria-label="Star this repository on GitHub">Star repo</a>
-  <a class="repo-side-button right" href="https://github.com/ktwu01/sean-xiang-chronicle/fork" target="_blank" rel="noopener noreferrer" aria-label="Fork this repository on GitHub">Fork repo</a>
+  <a class="repo-side-button left" href="https://github.com/ut01/geeta-persad-chronicle/stargazers" target="_blank" rel="noopener noreferrer" aria-label="Star this repository on GitHub">Star repo</a>
+  <a class="repo-side-button right" href="https://github.com/ut01/geeta-persad-chronicle/fork" target="_blank" rel="noopener noreferrer" aria-label="Fork this repository on GitHub">Fork repo</a>
   <main class="shell">
     <div class="topline">
-      <span>Sean Xiang Chronicle</span>
+      <span>Geeta Persad Chronicle</span>
     </div>
 
     <section class="hero">
       <article class="card hero-copy">
-        <div class="eyebrow">Founder chronicle</div>
-        <h1>Sean Xiang</h1>
-        <p class="lede">From doctoral engineering formation to a long enterprise-security build — and now a present-tense case for AI infrastructure.</p>
+        <div class="eyebrow">Climate scientist chronicle</div>
+        <h1>Geeta Persad</h1>
+        <p class="lede">From Austin roots to Stanford, Princeton, Carnegie — and back home to UT Austin as a leading voice on aerosols, climate risk, and the science-policy bridge.</p>
         <p class="summary">
           An editorial archive tracing academic research through enterprise validation, anchored by a verifiable timeline, geography, and primary sources.
         </p>
         <div class="chips" id="heroChips">
-          <span class="chip">CUHK Ph.D.</span>
-          <span class="chip">Beckman / UC Irvine</span>
-          <span class="chip">Bloombase</span>
-          <span class="chip">Enterprise security alliances</span>
-          <span class="chip">NVIDIA / AI-era repositioning</span>
+          <span class="chip">Stanford B.S. Geophysics</span>
+          <span class="chip">Princeton Ph.D.</span>
+          <span class="chip">Carnegie & UCS</span>
+          <span class="chip">UT Austin Faculty</span>
+          <span class="chip">NSF CAREER Award</span>
         </div>
       </article>
 
@@ -2888,7 +2888,7 @@
         <section class="card map-panel">
           <div class="section-label">Geography</div>
           <div class="map-shell">
-            <div id="map" aria-label="Map showing the geographic arc of Sean Xiang's chronicle"></div>
+            <div id="map" aria-label="Map showing the geographic arc of Geeta Persad's chronicle"></div>
             <div class="map-overlay"></div>
             <div class="map-caption">
               <h3 id="mapTitle">Loading…</h3>
@@ -2982,7 +2982,7 @@
     </section>
     <p class="footer-note">
       Koutian Wu et al. - GitHub repository:
-      <a href="https://github.com/ktwu01/sean-xiang-chronicle" target="_blank" rel="noopener noreferrer">https://github.com/ktwu01/sean-xiang-chronicle</a>
+      <a href="https://github.com/ut01/geeta-persad-chronicle" target="_blank" rel="noopener noreferrer">https://github.com/ut01/geeta-persad-chronicle</a>
     </p>
   </main>
 
@@ -3018,9 +3018,9 @@
       const root = document.getElementById('heroStats');
       if (!root) return;
       const stats = [
-        ['14 years', 'leading Bloombase as CEO'],
-        ['20+', 'enterprise alliances and certifications'],
-        ['Physics → EE PhD → Security CEO', 'the technical arc']
+        ['14 years', 'away from Austin before returning'],
+        ['7', 'chapters across formation, research, and faculty'],
+        ['B.S. → Ph.D. → Professor', 'the academic arc']
       ];
 
       stats.forEach(([value, text]) => {
@@ -4863,7 +4863,7 @@
       const blob = `${chapter.id} ${chapter.phase} ${chapter.title}`.toLowerCase();
       if (blob.includes('early') || blob.includes('formation')) return 'formation';
       if (blob.includes('research') || blob.includes('cuhk') || blob.includes('california')) return 'research';
-      if (blob.includes('founding') || blob.includes('bloombase')) return 'founder';
+      if (blob.includes('founding') || blob.includes('faculty') || blob.includes('ut austin')) return 'faculty';
       if (blob.includes('validation') || blob.includes('expansion')) return 'validation';
       return 'ai-era';
     }
@@ -5011,9 +5011,8 @@
         ['all', 'All'],
         ['formation', 'Formation'],
         ['research', 'Research'],
-        ['company', 'Company'],
-        ['validation', 'Validation'],
-        ['ai-era', 'AI era']
+        ['faculty', 'Faculty'],
+        ['ai-era', 'Research impact']
       ];
       const sourceOrigins = [
         ['all', 'All sources'],

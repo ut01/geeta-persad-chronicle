@@ -1,354 +1,232 @@
 [
   {
-    "id": "shanxi-birth",
-    "phase": "Shanxi",
+    "id": "austin-roots",
+    "phase": "Austin",
     "range": "Early years",
-    "title": "Born in Shanxi",
-    "dek": "Sean Xiang was born in Shanxi.",
-    "narrative": [],
+    "title": "Roots in Austin",
+    "dek": "Geeta Persad grew up in Austin, Texas — exploring the Texas Memorial Museum and auditing lectures at UT Austin as a child.",
+    "narrative": [
+      "Long before she would return as a faculty member, Geeta Persad's intellectual curiosity was shaped by Austin itself. Her family has deep roots in the city, and she spent her childhood in the spaces that would later become her professional home.",
+      "Her family originates from Trinidad and Tobago — a small island nation whose economy has been both fueled and made fragile by petrochemical resources. That connection gave Persad an early, visceral awareness of the tension between energy needs and climate realities, a tension that would define her scientific career."
+    ],
     "proofPoints": [],
-    "locationId": "shanxi-birthplace",
-    "locationIds": ["shanxi-birthplace"],
-    "mapCaption": "Born in Shanxi.",
+    "locationId": "austin-childhood",
+    "locationIds": ["austin-childhood"],
+    "mapCaption": "Grew up in Austin, Texas — with a family connection to UT Austin from childhood.",
     "mapCamera": {
-      "center": [
-        112.8518,
-        35.4907
-      ],
-      "zoom": 5.0,
+      "center": [-97.7431, 30.2672],
+      "zoom": 10.0,
       "pitch": 18,
       "bearing": -10
     },
-    "sources": [
-      "dossier",
-      "timeline-v2"
-    ],
+    "sources": ["jsg-profile-2020", "cheer-spotlight"],
     "evidenceProfile": {
       "stanceLabel": "Evidence stance",
-      "stance": "Restrained narrative",
+      "stance": "Biographical narrative",
       "strengthLabel": "Source mix",
-      "strength": "Narrative chapter",
+      "strength": "Institutional profile",
       "artifactLabel": "Artifact readiness",
-      "artifact": "Early life chapter"
+      "artifact": "Origin chapter"
     }
   },
   {
-    "id": "hefei-ustc",
-    "phase": "USTC",
-    "range": "1980",
-    "title": "Entering USTC",
-    "dek": "Admitted to USTC in Hefei in 1980, majoring in Physics.",
+    "id": "stanford-undergrad",
+    "phase": "Stanford",
+    "range": "2006–2010",
+    "title": "Geophysics at Stanford",
+    "dek": "B.S. in Geophysics from Stanford University (2010) — the first step away from Austin and toward a career at the intersection of Earth science and climate.",
     "narrative": [
-      "This marked the formal beginning of a highly accelerated academic and technical trajectory, laying a rigorous foundation in the sciences."
+      "Persad left Austin for Stanford University, where she earned a Bachelor of Science in Geophysics in 2010. The choice of geophysics reflected an early instinct to understand the physical systems underlying climate — not just the policy or the politics, but the mechanics of the Earth itself.",
+      "Stanford's environment also introduced her to the broader ecosystem of climate science and environmental policy, planting seeds for the interdisciplinary approach that would define her graduate work and beyond."
     ],
     "proofPoints": [],
-    "locationId": "hefei",
-    "locationIds": ["hefei"],
-    "mapCaption": "Xiang entered USTC in Hefei, Anhui in 1980, majoring in Physics.",
+    "locationId": "stanford",
+    "locationIds": ["stanford"],
+    "mapCaption": "B.S. in Geophysics, Stanford University, 2010.",
     "mapCamera": {
-      "center": [
-        117.2638,
-        31.8390
-      ],
-      "zoom": 5.0,
+      "center": [-122.1697, 37.4275],
+      "zoom": 11.0,
+      "pitch": 22,
+      "bearing": 8
+    },
+    "sources": ["jsg-profile-2020", "persad-people", "noaa-seminar-2023"],
+    "evidenceProfile": {
+      "stanceLabel": "Evidence stance",
+      "stance": "Confirmed institutional record",
+      "strengthLabel": "Source mix",
+      "strength": "Multiple public profiles",
+      "artifactLabel": "Artifact readiness",
+      "artifact": "Undergraduate chapter"
+    }
+  },
+  {
+    "id": "noaa-early",
+    "phase": "NOAA",
+    "range": "Pre-2011",
+    "title": "Physical Scientist at NOAA",
+    "dek": "Before her doctorate, Persad served as a Physical Scientist at the National Oceanic and Atmospheric Administration — an early grounding in applied climate science.",
+    "narrative": [
+      "Between her Stanford undergraduate years and enrolling at Princeton, Persad worked as a Physical Scientist at NOAA. This early professional experience in a federal science agency gave her direct exposure to how climate data is produced, used, and communicated to decision-makers.",
+      "The NOAA chapter established a practical dimension to her scientific formation — one that would later inform her commitment to making climate research legible and actionable for policymakers."
+    ],
+    "proofPoints": [],
+    "locationId": "princeton",
+    "locationIds": ["princeton"],
+    "mapCaption": "Physical Scientist at NOAA before enrolling at Princeton.",
+    "mapCamera": {
+      "center": [-74.6672, 40.3573],
+      "zoom": 8.0,
       "pitch": 18,
       "bearing": -10
     },
-    "sources": [
-      "dossier",
-      "timeline-v2"
-    ],
-    "evidenceProfile": {
-      "stanceLabel": "Evidence stance",
-      "stance": "Restrained narrative",
-      "strengthLabel": "Source mix",
-      "strength": "Narrative chapter",
-      "artifactLabel": "Artifact readiness",
-      "artifact": "Academic foundation chapter"
-    }
-  },
-  {
-    "id": "research-formation",
-    "phase": "CUHK",
-    "range": "Graduate era – 1997",
-    "title": "A long research arc before Silicon Valley",
-    "dek": "A Ph.D. in Electrical and Electronic Engineering from CUHK, followed by a Research Associate role at HKUST, preceded everything that followed.",
-    "narrative": [
-      "Sean Xiang’s trajectory did not begin with a leap into entrepreneurship, but with a rigorous academic foundation. Earning a Ph.D. in Electrical and Electronic Engineering from The Chinese University of Hong Kong, he established a deep technical baseline.",
-      "After CUHK, a Research Associate role at HKUST (1996–1997) extended his research depth before the move to California. This scientific grounding proved crucial — the later Bloombase architecture proved resilient across multiple computing waves precisely because of this formation period."
-    ],
-    "proofPoints": [],
-    "locationId": "hong-kong",
-    "locationIds": ["hong-kong"],
-    "mapCaption": "Ph.D. formation at The Chinese University of Hong Kong in Electrical and Electronic Engineering.",
-    "mapCamera": {
-      "center": [
-        114.2068,
-        22.4196
-      ],
-      "zoom": 10.5,
-      "pitch": 34,
-      "bearing": 6
-    },
-    "sources": [
-      "launch-academy",
-      "timeline-v2"
-    ],
+    "sources": ["stanford-woods", "noaa-seminar-2023"],
     "evidenceProfile": {
       "stanceLabel": "Evidence stance",
       "stance": "Public profile-backed chapter",
       "strengthLabel": "Source mix",
-      "strength": "Third-party connective source plus timeline synthesis",
+      "strength": "Multiple institutional bios",
       "artifactLabel": "Artifact readiness",
-      "artifact": "Research formation chapter"
+      "artifact": "Pre-PhD bridge chapter"
     }
   },
   {
-    "id": "california-transition",
-    "phase": "Beckman",
-    "range": "1997–1999",
-    "title": "Bridging science and technology strategy",
-    "dek": "Scientist at the Beckman Laser Institute & Medical Clinic, UC Irvine, August 1997 to December 1999.",
+    "id": "princeton-phd",
+    "phase": "Princeton",
+    "range": "2011–2016",
+    "title": "Doctoral formation at Princeton",
+    "dek": "Ph.D. in Atmospheric and Oceanic Sciences from Princeton University (2016), with an NSF Graduate Research Fellowship and a certificate in Science, Technology, and Environmental Policy.",
     "narrative": [
-      "The move from Hong Kong to California shifted the geography and the network — from academic formation toward the institutional ecosystems of the American technology sector, setting the stage for the company-building phase that followed."
-    ],
-    "proofPoints": [],
-    "locationId": "irvine",
-    "locationIds": ["irvine"],
-    "mapCaption": "Scientist at the Beckman Laser Institute, UC Irvine — the transition from pure academia toward company-building.",
-    "mapCamera": {
-      "center": [
-        -117.8443,
-        33.6405
-      ],
-      "zoom": 10.5,
-      "pitch": 30,
-      "bearing": -18
-    },
-    "sources": [
-      "launch-academy",
-      "dossier"
-    ],
-    "evidenceProfile": {
-      "stanceLabel": "Evidence stance",
-      "stance": "Bridge chapter with one key public profile anchor",
-      "strengthLabel": "Source mix",
-      "strength": "Third-party profile plus dossier synthesis",
-      "artifactLabel": "Artifact readiness",
-      "artifact": "California transition chapter"
-    }
-  },
-  {
-    "id": "founding-bloombase",
-    "phase": "Bloombase",
-    "range": "2012–present",
-    "title": "Bloombase is the long arc: enterprise data security built for endurance",
-    "dek": "Co-Founder & CEO of Bloombase since January 2012 — a multi-era infrastructure build embedding specialized security within global enterprise systems.",
-    "narrative": [
-      "Establishing headquarters in Redwood City placed Bloombase directly within Silicon Valley's infrastructure ecosystem — a strategic alignment with cloud ecosystems, hardware security module vendors, and enterprise buyers who demanded uncompromising platform trust.",
-      "In this highly unforgiving enterprise security market, Bloombase laid the groundwork for decades of architectural relevance."
+      "Persad chose Princeton in part because of the HMEI-STEP program — a fellowship that let her pursue rigorous scientific research while simultaneously studying its policy implications. Her dissertation focused on atmospheric aerosols: particle air pollutants produced by transportation, fossil fuel combustion, and agricultural burning, and how they impact the climate system.",
+      "A key project examined how international trade had shifted the location of black carbon aerosol emissions — particularly China's emissions driven by trade with other nations. She also attended the UN Rio+20 Conference in Brazil through the Princeton Energy and Climate Scholars Group, an experience that deepened her confidence in interdisciplinary spaces.",
+      "Her adviser Michael Oppenheimer, former chief scientist at the Environmental Defense Fund, became a formative mentor. Persad won consecutive Outstanding Student Paper Awards from the American Geophysical Union during this period for her work on aerosol-climate interactions."
     ],
     "proofPoints": [
-      "2013 releases across OpenStack, EMC, and VMware demonstrate early and deep platform integration.",
-      "2012 appearances in the Open Virtualization Alliance show early positioning in cloud security.",
-      "2014 advisory board expansion highlights early strategic organizational growth."
+      "NSF Graduate Research Fellow and Ford Science, Technology, and Environmental Policy Fellow.",
+      "Consecutive Outstanding Student Paper Awards from the American Geophysical Union.",
+      "Attended UN Rio+20 Conference in Brazil through Princeton Energy and Climate Scholars Group."
     ],
-    "locationId": "redwood-city",
-    "locationIds": ["redwood-city"],
-    "mapCaption": "Bloombase founded in Redwood City, Silicon Valley.",
+    "locationId": "princeton",
+    "locationIds": ["princeton"],
+    "mapCaption": "Ph.D. in Atmospheric and Oceanic Sciences, Princeton University, 2016.",
     "mapCamera": {
-      "center": [
-        -122.2364,
-        37.4852
-      ],
+      "center": [-74.6672, 40.3573],
+      "zoom": 11.0,
+      "pitch": 30,
+      "bearing": 6
+    },
+    "sources": ["cpree-qa-2020", "noaa-seminar-2023", "stanford-woods", "persad-people"],
+    "evidenceProfile": {
+      "stanceLabel": "Evidence stance",
+      "stance": "Strongest academic chapter",
+      "strengthLabel": "Source mix",
+      "strength": "Multiple institutional sources plus fellowship records",
+      "artifactLabel": "Artifact readiness",
+      "artifact": "Doctoral formation chapter"
+    }
+  },
+  {
+    "id": "carnegie-ucs",
+    "phase": "Carnegie / UCS",
+    "range": "2016–2020",
+    "title": "Bridging science and policy at Carnegie and UCS",
+    "dek": "Joint position as Research Associate at the Carnegie Institution for Science (Stanford) and Senior Climate Scientist at the Union of Concerned Scientists — applying climate modeling to real-world water and policy questions.",
+    "narrative": [
+      "After Princeton, Persad held a joint position that embodied her dual commitment to fundamental science and societal impact. At the Carnegie Institution for Science, she worked with Dr. Ken Caldeira using global climate models to understand how climates might change as emissions patterns vary across the world — mapping who feels the effects of climate and air quality changes and translating findings into policy-relevant metrics.",
+      "At the Union of Concerned Scientists, she led the Western Water and Climate Program, applying that climate modeling expertise to water resource questions in the Western U.S. — especially California's complex managed water infrastructure. She worked directly with government agencies, legislatures, and community stakeholders to improve climate planning in water management.",
+      "This period crystallized her conviction that asking scientific questions in slightly different ways can align research more closely with decisions that policymakers actually have to make."
+    ],
+    "proofPoints": [
+      "Led the Western Water and Climate Program at the Union of Concerned Scientists.",
+      "Research Associate at Carnegie Institution for Science with Dr. Ken Caldeira.",
+      "Worked directly with government agencies and legislatures on Western U.S. water planning."
+    ],
+    "locationId": "carnegie-stanford",
+    "locationIds": ["carnegie-stanford"],
+    "mapCaption": "Joint position at Carnegie Institution for Science (Stanford) and Union of Concerned Scientists, 2016–2020.",
+    "mapCamera": {
+      "center": [-122.1580, 37.4020],
       "zoom": 10.5,
+      "pitch": 28,
+      "bearing": -18
+    },
+    "sources": ["cpree-qa-2020", "cheer-spotlight", "noaa-seminar-2023", "stanford-woods"],
+    "evidenceProfile": {
+      "stanceLabel": "Evidence stance",
+      "stance": "Well-documented bridge chapter",
+      "strengthLabel": "Source mix",
+      "strength": "Multiple institutional profiles plus first-person Q&A",
+      "artifactLabel": "Artifact readiness",
+      "artifact": "Postdoctoral bridge chapter"
+    }
+  },
+  {
+    "id": "ut-austin-faculty",
+    "phase": "UT Austin",
+    "range": "2020–present",
+    "title": "Coming home: Assistant Professor at UT Austin",
+    "dek": "Assistant Professor of Climate Science at the Jackson School of Geosciences, UT Austin — returning to her hometown 14 years after leaving for Stanford.",
+    "narrative": [
+      "In 2020, Persad joined the Jackson School of Geosciences at The University of Texas at Austin as an Assistant Professor of Climate Science — returning to the city where she grew up. 'Coming home was a really big draw,' she said. 'I have a long family and Austinite connection to the university.'",
+      "She leads the Persad Aero-Climate Group, whose research centers on the role of atmospheric aerosol emissions in driving inter-regional differences in climate change and the emergence of heat and hydroclimate extremes. A growing branch of the lab's work applies this understanding to questions at the interface of climate and hydrology, with a focus on water management stress in the Central and Western U.S.",
+      "Persad was a critical driver in developing the new climate system science major in the Department of Earth and Planetary Sciences, and is passionate about building a diverse geoscience enterprise through mentorship and outreach. In 2021, the Environmental Defense Fund named her one of eight 'Generation Climate' leaders."
+    ],
+    "proofPoints": [
+      "2021: Named EDF 'Generation Climate' leader — one of eight honorees on the cover of EDF Solutions magazine.",
+      "2023: NOAA grant to study how changing aerosol pollution could influence near-term U.S. climate change.",
+      "2025: NSF CAREER Award for research on aerosol-driven compound climate risks."
+    ],
+    "locationId": "ut-austin",
+    "locationIds": ["ut-austin"],
+    "mapCaption": "Assistant Professor, Jackson School of Geosciences, UT Austin — returning to her hometown.",
+    "mapCamera": {
+      "center": [-97.7341, 30.2849],
+      "zoom": 13.0,
       "pitch": 28,
       "bearing": -22
     },
-    "sources": [
-      "ova-2012",
-      "bloombase-about",
-      "bloombase-offices",
-      "slayton-2014",
-      "bloombase-news-index",
-      "openstack-2013",
-      "emc-2013",
-      "vmware-2013",
-      "dossier",
-      "timeline-v2"
-    ],
+    "sources": ["jsg-profile-2020", "jsg-researcher", "cheer-spotlight", "edf-climate-leader", "nsf-career-2025"],
     "evidenceProfile": {
       "stanceLabel": "Evidence stance",
-      "stance": "Company-spine chapter",
+      "stance": "Strongest chapter — dense institutional record",
       "strengthLabel": "Source mix",
-      "strength": "Primary company URLs now support a stronger founding and geography layer",
+      "strength": "Multiple UT Austin institutional sources plus awards trail",
       "artifactLabel": "Artifact readiness",
-      "artifact": "Source cards ready"
+      "artifact": "Faculty chapter — ready for full treatment"
     }
   },
   {
-    "id": "enterprise-validation",
-    "phase": "Expand",
-    "range": "2014–2020",
-    "title": "Validation accumulates through alliances, certifications, and interoperability",
-    "dek": "A dense network of certifications and partnerships established Bloombase as a universally trusted layer in enterprise infrastructure.",
+    "id": "research-impact",
+    "phase": "Research",
+    "range": "2020–present",
+    "title": "Aerosols, climate risk, and the science of compound extremes",
+    "dek": "Persad's research group investigates how aerosol pollution drives spatially complex climate risks — and how rapidly evolving emissions represent a dangerous omission from near-term climate risk assessments.",
     "narrative": [
-      "From 2014 to 2020, Bloombase methodically expanded its interoperability map. Announcements cataloged deep technical integration with Dell, Hitachi, HP ESKM, Thales ASAP, IBM, VMware Cloud on AWS, and Microsoft Azure Marketplace.",
-      "These milestones represent more than a collection of alliances; they show a clear accumulation pattern of trust. Across changing infrastructure regimes, Bloombase consistently positioned itself at the nexus where data security and performance are non-negotiable."
+      "The Persad Aero-Climate Group uses numerical global climate models to understand how atmospheric aerosol particles — the primary radiative forcing offset to greenhouse gases over the industrial era — drive inter-regional differences in the magnitude and rate of climate change.",
+      "A key insight driving the lab's current work: aerosol emissions are expected to change rapidly over the coming decades, driving strong, spatially complex trends in temperature, hydroclimate, and extreme events both near and far from emission sources. This makes them a dangerous omission from near-term climate risk assessments.",
+      "With her 2025 NSF CAREER Award, Persad is investigating how aerosol pollutants that produce smog contribute to compound climate risks — extreme temperature, rainfall, and humidity occurring simultaneously. The education component of the award will develop a computational field trip with the Texas Advanced Computing Center, giving undergraduates hands-on experience with Earth system model data."
     ],
     "proofPoints": [
-      "2013-2014: Early validation established with OpenStack, EMC, VMware, Dell, and Hitachi.",
-      "2015-2017: Certifications with HP, Thales, Ultra Electronics, HPE, IBM, ATTO, and Huawei deepen custody and storage trust.",
-      "2018-2020: Public cloud scale confirmed through VMware Cloud on AWS and Microsoft Azure Marketplace.",
-      "Hardware security module (HSM) integrations widened aggressively through Marvell, nCipher, and Futurex."
+      "2023 IOP Science paper: 'Rapidly evolving aerosol emissions are a dangerous omission from near-term climate risk assessments.'",
+      "2023 NOAA grant for near-term aerosol climate risk research.",
+      "2025 NSF CAREER Award for compound aerosol-climate risk research."
     ],
-    "locationId": "redwood-city",
-    "locationIds": ["redwood-city"],
-    "mapCaption": "Enterprise validation years based in Silicon Valley.",
+    "locationId": "global-climate",
+    "locationIds": ["global-climate"],
+    "mapCaption": "Research spans global aerosol transport, monsoon systems, and Western U.S. water impacts.",
     "mapCamera": {
-      "center": [
-        -122.2364,
-        37.4852
-      ],
-      "zoom": 9.0,
-      "pitch": 44,
-      "bearing": -8
-    },
-    "sources": [
-      "openstack-2013",
-      "emc-2013",
-      "vmware-2013",
-      "vmware-2014",
-      "hitachi-2014",
-      "hp-2015",
-      "thales-2015",
-      "hpe-2015",
-      "ibm-2017",
-      "huawei-2017",
-      "vmware-aws-2018",
-      "azure-2019",
-      "marvell-2019",
-      "ncipher-2019",
-      "futurex-2020"
-    ],
-    "evidenceProfile": {
-      "stanceLabel": "Evidence stance",
-      "stance": "Strongest historical chapter",
-      "strengthLabel": "Source mix",
-      "strength": "Dense first-party alliance and certification trail",
-      "artifactLabel": "Artifact readiness",
-      "artifact": "Ready for richer document-style artifact cards"
-    }
-  },
-  {
-    "id": "geographic-expansion",
-    "phase": "Vancouver",
-    "range": "2018 onward",
-    "title": "The geography widens: strategic expansion to Canada",
-    "dek": "Expansion beyond Silicon Valley emphasized global talent, advanced cryptography capability, and strategic ecosystem scale.",
-    "narrative": [
-      "Recognizing the increasing global demand for rigorous data protection, Bloombase strategically expanded its operations into Canada. As detailed in a 2018 Launch Academy profile, Vancouver provided a strong talent pool, advanced cryptography resources, and a supportive technology ecosystem.",
-      "This geographic shift marked a transition from a Silicon Valley-centric operation to a mature, international engineering organization structured for scale."
-    ],
-    "proofPoints": [
-      "Vancouver office launch captured in 2018 Launch Academy profile."
-    ],
-    "locationId": "vancouver",
-    "locationIds": ["vancouver"],
-    "mapCaption": "Bloombase expands to Vancouver for cryptography talent and ecosystem scale.",
-    "mapCamera": {
-      "center": [
-        -123.1207,
-        49.2827
-      ],
-      "zoom": 5.25,
-      "pitch": 32,
-      "bearing": 14
-    },
-    "sources": [
-      "launch-academy",
-      "timeline-v2"
-    ],
-    "evidenceProfile": {
-      "stanceLabel": "Evidence stance",
-      "stance": "Selective expansion chapter",
-      "strengthLabel": "Source mix",
-      "strength": "One strong public expansion profile plus chronology support",
-      "artifactLabel": "Artifact readiness",
-      "artifact": "Geographic expansion chapter"
-    }
-  },
-  {
-    "id": "shenzhen-academic",
-    "phase": "Shenzhen",
-    "range": "2018–2023",
-    "title": "Parallel academic chapter: Founding Dean and Institute co-founder in Shenzhen",
-    "dek": "Alongside leading Bloombase, Sean Xiang built an academic track in Shenzhen — Founding Dean of the School of Artificial Intelligence at Shenzhen Technology University, then Chair Professor and Co-founder at the X-Institute of Shenzhen.",
-    "narrative": [
-      "Both roles were part-time and ran in parallel with his CEO duties at Bloombase. This parallel academic arc reflects the same technical thesis: that AI-era infrastructure demands deep cryptographic and security foundations."
-    ],
-    "proofPoints": [],
-    "locationId": "shenzhen",
-    "locationIds": ["shenzhen"],
-    "mapCaption": "Shenzhen academic chapter: Founding Dean of AI at SZTech, then X-Institute co-founder.",
-    "mapCamera": {
-      "center": [
-        114.0579,
-        22.5431
-      ],
-      "zoom": 5.5,
-      "pitch": 28,
-      "bearing": 0
-    },
-    "sources": [
-      "dossier"
-    ],
-    "evidenceProfile": {
-      "stanceLabel": "Evidence stance",
-      "stance": "LinkedIn-confirmed institutional roles",
-      "strengthLabel": "Source mix",
-      "strength": "Direct LinkedIn profile data",
-      "artifactLabel": "Artifact readiness",
-      "artifact": "Shenzhen academic chapter"
-    }
-  },
-  {
-    "id": "ai-era",
-    "phase": "AI era",
-    "range": "2023–now",
-    "title": "The current chapter is not nostalgia — it is AI infrastructure",
-    "dek": "Rebuilding enterprise security primitives for the AI-infrastructure era: post-quantum cryptography, NVIDIA accelerators, and a new standards-layer presence.",
-    "narrative": [
-      "In 2023, Bloombase rebuilt data-at-rest encryption to run natively on NVIDIA DPUs and GPUs — a technical argument that security must operate at the accelerator level to avoid becoming a bottleneck in AI data pipelines. At NVIDIA GTC 2024, Sean Xiang served as a panelist on AI-era cyber defense alongside executives from NVIDIA, Qrypt, and Reality Defender; the Bloombase booth demonstrated post-quantum cryptography (PQC) encryption powered by NVIDIA GPU, DPU, and Morpheus AI.",
-      "In 2025, a strategic alliance with Utimaco delivered integrated NIST FIPS 140-2 Level 3 certified HSM key protection and OASIS KMIP-compliant key management for AI-era workloads. Bloombase also joined the PKI Consortium in November 2024, deepening its participation in cryptographic standards infrastructure."
-    ],
-    "proofPoints": [
-      "2024: Entrust partnership integrating StoreSafe with nShield Connect HSMs."
-    ],
-    "locationId": "global-ai",
-    "locationIds": ["global-ai"],
-    "mapCaption": "Bloombase integrates with NVIDIA, Utimaco, and global cloud infrastructure.",
-    "mapCamera": {
-      "center": [
-        8,
-        24
-      ],
-      "zoom": 1.35,
+      "center": [-20.0, 20.0],
+      "zoom": 1.5,
       "pitch": 10,
       "bearing": 0
     },
-    "sources": [
-      "nvidia-2023",
-      "utimaco-2025",
-      "dossier"
-    ],
+    "sources": ["nsf-career-2025", "noaa-grant-2023", "iop-aerosol-2023", "utig-seminar-2024"],
     "evidenceProfile": {
       "stanceLabel": "Evidence stance",
-      "stance": "Present-tense relevance chapter",
+      "stance": "Present-tense research chapter",
       "strengthLabel": "Source mix",
-      "strength": "Direct Bloombase sources with a clear AI-era frame",
+      "strength": "Direct institutional sources with a clear research frame",
       "artifactLabel": "Artifact readiness",
-      "artifact": "Best candidate for stronger media / announcement treatment"
+      "artifact": "Best candidate for richer research artifact treatment"
     }
   }
 ]

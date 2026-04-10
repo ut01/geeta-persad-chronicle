@@ -1,6 +1,6 @@
 # Animated Chronicle Template
 
-An animated founder/professional chronicle project featuring:
+An animated academic/professional chronicle project featuring:
 - Research dossier
 - Milestone timeline
 - Geographic journey map
@@ -8,6 +8,7 @@ An animated founder/professional chronicle project featuring:
 - TimelineJS + StoryMapJS integration
 
 Originally created for Sean Xiang / Bloombase by Koutian Wu <https://github.com/ktwu01/>
+Now adapted for Geeta Persad / UT Austin Climate Scientist
 
 ---
 
